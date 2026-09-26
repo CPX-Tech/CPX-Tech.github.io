@@ -1,13 +1,225 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>CPX AI</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CPX Technologies | AI infrastructure for North America</title>
+<meta name="description" content="CPX Technologies Inc. is the United States operating company of the Freyr group, deploying and operating NVIDIA HGX B300 GPU clusters at colocation facilities across North America.">
+<meta name="theme-color" content="#0B111B">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="CPX Technologies | AI infrastructure for North America">
+<meta property="og:description" content="Deploying and operating NVIDIA HGX B300 GPU clusters at colocation facilities across North America.">
+<meta property="og:url" content="https://www.cpxtech.ai/">
+<meta property="og:image" content="https://www.cpxtech.ai/assets/cpx-lockup-reversed.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/cpx-appicon-1024.png">
+<link rel="canonical" href="https://www.cpxtech.ai/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --green:#8DCC3D;
+    --blue:#1B6DB6;
+    --ink:#232323;
+    --bg:#0B111B;
+    --bg-2:#111A28;
+    --line:rgba(255,255,255,.10);
+    --text:#E8EEF6;
+    --muted:#93A3B8;
+    --max:1080px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+  /* Ambient brand wash: green top-left, blue bottom-right. */
+  body::before{
+    content:"";
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(60rem 40rem at 12% -10%, rgba(141,204,61,.13), transparent 62%),
+      radial-gradient(52rem 38rem at 92% 108%, rgba(27,109,182,.20), transparent 60%),
+      linear-gradient(180deg, #0B111B 0%, #0E1522 55%, #0B111B 100%);
+  }
+  .wrap{position:relative; z-index:1; width:100%; max-width:var(--max); margin:0 auto; padding:0 24px}
+
+  header{padding:28px 0 0}
+  .brandbar{display:flex; align-items:center; justify-content:space-between; gap:16px}
+  /* Brand rule: below 280px use the wordmark (no "CPX GROUP" subtitle); min width 140px. */
+  .brandbar img{height:36px; width:auto; display:block}
+  .tagpill{
+    font-family:"Space Grotesk",ui-monospace,monospace;
+    font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--muted);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:6px 14px;
+    white-space:nowrap;
+  }
+
+  main{flex:1; display:flex; align-items:center; padding:64px 0}
+  .hero{max-width:720px}
+  .eyebrow{
+    font-family:"Space Grotesk",ui-monospace,monospace;
+    font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--green);
+    margin:0 0 20px;
+  }
+  h1{
+    font-family:"Plus Jakarta Sans",system-ui,sans-serif;
+    font-weight:800;
+    font-size:clamp(34px, 6.2vw, 58px);
+    line-height:1.08;
+    letter-spacing:-.02em;
+    margin:0 0 22px;
+  }
+  h1 .accent{
+    background:linear-gradient(95deg, var(--green), var(--blue));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .lede{font-size:clamp(16px,2.2vw,19px); color:#C3CFDE; margin:0 0 14px; max-width:60ch}
+  .sub{font-size:15px; color:var(--muted); margin:0; max-width:60ch}
+
+  .facts{
+    list-style:none; margin:40px 0 0; padding:0;
+    display:grid; gap:14px;
+    grid-template-columns:repeat(3, minmax(0,1fr));
+  }
+  .facts li{
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:rgba(255,255,255,.025);
+    padding:16px 18px;
+  }
+  .facts b{
+    display:block;
+    font-family:"Plus Jakarta Sans",system-ui,sans-serif;
+    font-weight:700; font-size:15px; color:var(--text); margin-bottom:4px;
+  }
+  .facts span{font-size:13.5px; color:var(--muted); line-height:1.55}
+
+  .contact{
+    margin-top:48px;
+    padding-top:28px;
+    border-top:1px solid var(--line);
+  }
+  .contact h2{
+    font-family:"Space Grotesk",ui-monospace,monospace;
+    font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--muted); font-weight:500; margin:0 0 18px;
+  }
+  .people{display:flex; flex-wrap:wrap; gap:14px 48px; margin:0; padding:0; list-style:none}
+  .people .name{
+    font-family:"Plus Jakarta Sans",system-ui,sans-serif;
+    font-weight:700; font-size:16px; color:var(--text);
+  }
+  .people .role{font-size:13px; color:var(--muted); margin:1px 0 6px}
+  .people a{
+    color:var(--green); text-decoration:none;
+    border-bottom:1px solid rgba(141,204,61,.32);
+    font-size:14.5px;
+    overflow-wrap:anywhere;
+  }
+  .people a:hover{border-bottom-color:var(--green)}
+  a:focus-visible{outline:2px solid var(--green); outline-offset:3px; border-radius:2px}
+
+  footer{
+    position:relative; z-index:1;
+    border-top:1px solid var(--line);
+    padding:22px 0 30px;
+    font-size:13px; color:#7D8CA1;
+  }
+  .footrow{display:flex; flex-wrap:wrap; gap:6px 20px; align-items:baseline; justify-content:space-between}
+
+  @media (max-width:760px){
+    .facts{grid-template-columns:1fr}
+    main{padding:44px 0}
+    .tagpill{display:none}
+    .people{gap:22px}
+  }
+</style>
 </head>
 
-
 <body>
-    Welcome to CPX AI
-</body>
 
+<header>
+  <div class="wrap brandbar">
+    <img src="assets/cpx-wordmark-color.svg" alt="CPX Group">
+    <span class="tagpill">CPX Technologies Inc.</span>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="hero">
+      <p class="eyebrow">Santa Clara, California</p>
+
+      <h1>AI infrastructure for <span class="accent">North America</span>.</h1>
+
+      <p class="lede">
+        CPX Technologies Inc. is the United States operating company of the Freyr group.
+        We deploy and operate NVIDIA HGX B300 GPU clusters at colocation facilities
+        across North America, contracted to customers on reserved terms.
+      </p>
+      <p class="sub">Our full site is on the way. In the meantime, talk to us directly.</p>
+
+      <ul class="facts">
+        <li>
+          <b>Dedicated bare metal</b>
+          <span>Eight-GPU NVIDIA HGX B300 nodes, root access, no preemption.</span>
+        </li>
+        <li>
+          <b>Reserved capacity</b>
+          <span>Nodes held for the full term at a price agreed up front.</span>
+        </li>
+        <li>
+          <b>Built and run by us</b>
+          <span>Siting, deployment, burn-in and 24/7 operations in house.</span>
+        </li>
+      </ul>
+
+      <section class="contact">
+        <h2>Contact</h2>
+        <ul class="people">
+          <li>
+            <div class="name">John Kinash</div>
+            <div class="role">Business Development, North America</div>
+            <a href="mailto:john.kinash@cpxtech.ai">john.kinash@cpxtech.ai</a>
+          </li>
+          <li>
+            <div class="name">Matthew Mok</div>
+            <div class="role">Business Development</div>
+            <a href="mailto:matthew.mok@cpxtech.ai">matthew.mok@cpxtech.ai</a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap footrow">
+    <span>&copy; 2026 CPX Technologies Inc.</span>
+    <span>Santa Clara, California</span>
+  </div>
+</footer>
+
+</body>
 </html>
