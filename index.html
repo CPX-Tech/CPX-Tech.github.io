@@ -3,223 +3,818 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CPX Technologies | AI infrastructure for North America</title>
-<meta name="description" content="CPX Technologies Inc. is the United States operating company of the Freyr group, deploying and operating NVIDIA HGX B300 GPU clusters at colocation facilities across North America.">
-<meta name="theme-color" content="#0B111B">
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="CPX Technologies | AI infrastructure for North America">
-<meta property="og:description" content="Deploying and operating NVIDIA HGX B300 GPU clusters at colocation facilities across North America.">
-<meta property="og:url" content="https://www.cpxtech.ai/">
-<meta property="og:image" content="https://www.cpxtech.ai/assets/cpx-lockup-reversed.png">
-<meta name="twitter:card" content="summary_large_image">
-
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
 <link rel="apple-touch-icon" href="assets/cpx-appicon-1024.png">
+<meta name="theme-color" content="#0E1622">
+<meta property="og:image" content="https://www.cpxtech.ai/assets/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://www.cpxtech.ai/">
+
+<title>CPX Technologies | Own your AI</title>
+<meta name="description" content="NVIDIA HGX B300 compute for teams across Canada and the United States. Dedicated bare metal clusters on reserved terms, from CPX Technologies Inc.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        navy:   { DEFAULT:'#0E1622', deep:'#0A111B', mid:'#182535', slate:'#232323' },
+        royal:  '#15588F',
+        bluedeep:'#15588F',
+        cta:    '#1B6DB6',
+        green:  '#8DCC3D',
+        tint:   '#D3E2F1',
+        offwhite:'#F6F8FB',
+        hair:   '#D8DFE9',
+        body:   '#475569',
+        muted:  '#64748B',
+        lightgray:'#94A3B8'
+      },
+      fontFamily: {
+        display: ['"Plus Jakarta Sans"','system-ui','sans-serif'],
+        sans:    ['Inter','system-ui','sans-serif'],
+        stat:    ['"Space Grotesk"','ui-monospace','monospace']
+      },
+      maxWidth: { content: '1140px' }
+    }
+  }
+}
+</script>
 
 <style>
-  :root{
-    --green:#8DCC3D;
-    --blue:#1B6DB6;
-    --ink:#232323;
-    --bg:#0B111B;
-    --bg-2:#111A28;
-    --line:rgba(255,255,255,.10);
-    --text:#E8EEF6;
-    --muted:#93A3B8;
-    --max:1080px;
-  }
-  *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
-    font-size:16px;
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-  }
-  /* Ambient brand wash: green top-left, blue bottom-right. */
-  body::before{
-    content:"";
-    position:fixed; inset:0; z-index:0; pointer-events:none;
+  html { scroll-behavior: smooth; }
+  /* keep anchored sections clear of the sticky 64px header */
+  section[id] { scroll-margin-top: 5rem; }
+  body { -webkit-font-smoothing: antialiased; }
+
+  /* Placeholder image blocks. Replace each with a real <img>. */
+  .ph {
+    position: relative;
     background:
-      radial-gradient(60rem 40rem at 12% -10%, rgba(141,204,61,.13), transparent 62%),
-      radial-gradient(52rem 38rem at 92% 108%, rgba(27,109,182,.20), transparent 60%),
-      linear-gradient(180deg, #0B111B 0%, #0E1522 55%, #0B111B 100%);
+      repeating-linear-gradient(45deg, rgba(148,163,184,.07) 0 12px, transparent 12px 24px),
+      linear-gradient(135deg, #182535 0%, #0E1622 100%);
+    border: 1px dashed rgba(148,163,184,.35);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
   }
-  .wrap{position:relative; z-index:1; width:100%; max-width:var(--max); margin:0 auto; padding:0 24px}
+  .ph--light {
+    background:
+      repeating-linear-gradient(45deg, rgba(71,85,105,.05) 0 12px, transparent 12px 24px),
+      linear-gradient(135deg, #EEF3FA 0%, #F6F8FB 100%);
+    border: 1px dashed #C3CFE0;
+  }
+  .ph__label {
+    font-family: 'Space Grotesk', monospace;
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: rgba(211,226,241,.65); text-align: center; padding: 0 20px; line-height: 1.7;
+  }
+  .ph--light .ph__label { color: #7C8BA1; }
 
-  header{padding:28px 0 0}
-  .brandbar{display:flex; align-items:center; justify-content:space-between; gap:16px}
-  /* Brand rule: below 280px use the wordmark (no "CPX GROUP" subtitle); min width 140px. */
-  .brandbar img{height:36px; width:auto; display:block}
-  .tagpill{
-    font-family:"Space Grotesk",ui-monospace,monospace;
-    font-size:11px; letter-spacing:.16em; text-transform:uppercase;
-    color:var(--muted);
-    border:1px solid var(--line);
-    border-radius:999px;
-    padding:6px 14px;
-    white-space:nowrap;
-  }
+  .rule { height:1px; background:linear-gradient(90deg,transparent,rgba(211,226,241,.28),transparent); }
+  .eyebrow { font-family:'Space Grotesk',monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; }
 
-  main{flex:1; display:flex; align-items:center; padding:64px 0}
-  .hero{max-width:720px}
-  .eyebrow{
-    font-family:"Space Grotesk",ui-monospace,monospace;
-    font-size:11px; letter-spacing:.2em; text-transform:uppercase;
-    color:var(--green);
-    margin:0 0 20px;
-  }
-  h1{
-    font-family:"Plus Jakarta Sans",system-ui,sans-serif;
-    font-weight:800;
-    font-size:clamp(34px, 6.2vw, 58px);
-    line-height:1.08;
-    letter-spacing:-.02em;
-    margin:0 0 22px;
-  }
-  h1 .accent{
-    background:linear-gradient(95deg, var(--green), var(--blue));
-    -webkit-background-clip:text; background-clip:text; color:transparent;
-  }
-  .lede{font-size:clamp(16px,2.2vw,19px); color:#C3CFDE; margin:0 0 14px; max-width:60ch}
-  .sub{font-size:15px; color:var(--muted); margin:0; max-width:60ch}
-
-  .facts{
-    list-style:none; margin:40px 0 0; padding:0;
-    display:grid; gap:14px;
-    grid-template-columns:repeat(3, minmax(0,1fr));
-  }
-  .facts li{
-    border:1px solid var(--line);
-    border-radius:12px;
-    background:rgba(255,255,255,.025);
-    padding:16px 18px;
-  }
-  .facts b{
-    display:block;
-    font-family:"Plus Jakarta Sans",system-ui,sans-serif;
-    font-weight:700; font-size:15px; color:var(--text); margin-bottom:4px;
-  }
-  .facts span{font-size:13.5px; color:var(--muted); line-height:1.55}
-
-  .contact{
-    margin-top:48px;
-    padding-top:28px;
-    border-top:1px solid var(--line);
-  }
-  .contact h2{
-    font-family:"Space Grotesk",ui-monospace,monospace;
-    font-size:11px; letter-spacing:.2em; text-transform:uppercase;
-    color:var(--muted); font-weight:500; margin:0 0 18px;
-  }
-  .people{display:flex; flex-wrap:wrap; gap:14px 48px; margin:0; padding:0; list-style:none}
-  .people .name{
-    font-family:"Plus Jakarta Sans",system-ui,sans-serif;
-    font-weight:700; font-size:16px; color:var(--text);
-  }
-  .people .role{font-size:13px; color:var(--muted); margin:1px 0 6px}
-  .people a{
-    color:var(--green); text-decoration:none;
-    border-bottom:1px solid rgba(141,204,61,.32);
-    font-size:14.5px;
-    overflow-wrap:anywhere;
-  }
-  .people a:hover{border-bottom-color:var(--green)}
-  a:focus-visible{outline:2px solid var(--green); outline-offset:3px; border-radius:2px}
-
-  footer{
-    position:relative; z-index:1;
-    border-top:1px solid var(--line);
-    padding:22px 0 30px;
-    font-size:13px; color:#7D8CA1;
-  }
-  .footrow{display:flex; flex-wrap:wrap; gap:6px 20px; align-items:baseline; justify-content:space-between}
-
-  @media (max-width:760px){
-    .facts{grid-template-columns:1fr}
-    main{padding:44px 0}
-    .tagpill{display:none}
-    .people{gap:22px}
+  /* Scroll reveal. Only arms itself when JS is running, so content is never hidden by a failed script. */
+  .reveal { transition: opacity .55s cubic-bezier(.2,.6,.2,1), transform .55s cubic-bezier(.2,.6,.2,1); }
+  .has-js .reveal { opacity: 0; transform: translateY(16px); }
+  .has-js .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .has-js .reveal { opacity: 1; transform: none; }
+    .reveal { transition: none; }
   }
 </style>
+<script>document.documentElement.classList.add('has-js');</script>
 </head>
 
-<body>
+<body class="font-sans bg-white text-navy-slate antialiased">
 
-<header>
-  <div class="wrap brandbar">
-    <img src="assets/cpx-wordmark-color.svg" alt="CPX Group">
-    <span class="tagpill">CPX Technologies Inc.</span>
+<!-- ============================================ NAV -->
+<header class="sticky top-0 z-50 bg-navy/95 backdrop-blur border-b border-white/10">
+  <div class="max-w-content mx-auto px-6 h-16 flex items-center justify-between">
+    <a class='flex items-center shrink-0' href='index.html'>
+      <img src="assets/cpx-wordmark-color.svg" alt="CPX Group"
+           class="h-9 w-auto" width="1208" height="306">
+    </a>
+    <nav class="hidden lg:flex items-center gap-7 text-sm text-tint/80">
+      <a href="#platform" class="hover:text-white transition">Platform</a>
+      <a class='hover:text-white transition' href='nvidia-b300.html'>NVIDIA B300</a>
+      <a class='hover:text-white transition' href='who-we-build-for.html'>Who we build for</a>
+      <a href="#reserved" class="hover:text-white transition">Reserved capacity</a>
+      <a href="#facilities" class="hover:text-white transition">Facilities</a>
+      <a class='hover:text-white transition' href='team.html'>Our team</a>
+    </nav>
+    <a class='shrink-0 whitespace-nowrap bg-cta hover:bg-bluedeep transition
+              text-white font-medium rounded-md
+              text-[13px] px-3 py-1.5 sm:text-sm sm:px-4 sm:py-2' href='contact.html'>
+      <span class="sm:hidden">Book a consult</span>
+      <span class="hidden sm:inline">Book a technical consult</span>
+    </a>
   </div>
 </header>
 
-<main>
-  <div class="wrap">
-    <div class="hero">
-      <p class="eyebrow">Santa Clara, California</p>
+<!-- ============================================ 1. HERO -->
+<section class="relative bg-navy overflow-hidden isolate">
 
-      <h1>AI infrastructure for <span class="accent">North America</span>.</h1>
+  <!-- Brand backdrop: CPX green/blue wash over ink, with a hex lattice -->
+  <div class="absolute inset-0 -z-20 pointer-events-none"
+       style="background:
+         radial-gradient(70rem 46rem at 8% -12%, rgba(141,204,61,.20), transparent 60%),
+         radial-gradient(60rem 44rem at 96% 112%, rgba(27,109,182,.34), transparent 58%),
+         linear-gradient(160deg, #0E1622 0%, #101B29 48%, #0A111B 100%)"></div>
+  <svg class="absolute inset-0 -z-10 h-full w-full opacity-[.13]" aria-hidden="true">
+    <defs>
+      <pattern id="hex" width="56" height="97" patternUnits="userSpaceOnUse" patternTransform="scale(1.35)">
+        <path d="M28 0 L56 16 L56 48 L28 64 L0 48 L0 16 Z" fill="none" stroke="#8DCC3D" stroke-width="1"/>
+        <path d="M28 48.5 L56 64.5 L56 96.5 L28 112.5 L0 96.5 L0 64.5 Z" fill="none" stroke="#1B6DB6" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#hex)"/>
+  </svg>
 
-      <p class="lede">
-        CPX Technologies Inc. is the United States operating company of the Freyr group.
-        We deploy and operate NVIDIA HGX B300 GPU clusters at colocation facilities
-        across North America, contracted to customers on reserved terms.
+  <div class="relative max-w-content mx-auto px-6 pt-24 pb-24 lg:pt-36 lg:pb-40">
+    <div class="max-w-2xl">
+      <p class="eyebrow text-green mb-6">Santa Clara, California</p>
+
+      <h1 class="font-display font-extrabold text-white tracking-tight leading-[0.95]
+                 text-6xl sm:text-7xl lg:text-[5.75rem]
+                 [text-shadow:0_2px_40px_rgba(10,17,27,.6)]">
+        Own your AI.
+      </h1>
+
+      <p class="mt-7 text-lg lg:text-xl text-tint/90 leading-relaxed max-w-xl">
+        NVIDIA HGX B300 servers contracted to one customer at a time, in our own colocation across Canada and the United States.
       </p>
-      <p class="sub">Our full site is on the way. In the meantime, talk to us directly.</p>
 
-      <ul class="facts">
-        <li>
-          <b>Dedicated bare metal</b>
-          <span>Eight-GPU NVIDIA HGX B300 nodes, root access, no preemption.</span>
-        </li>
-        <li>
-          <b>Reserved capacity</b>
-          <span>Nodes held for the full term at a price agreed up front.</span>
-        </li>
-        <li>
-          <b>Built and run by us</b>
-          <span>Siting, deployment, burn-in and 24/7 operations in house.</span>
-        </li>
-      </ul>
-
-      <section class="contact">
-        <h2>Contact</h2>
-        <ul class="people">
-          <li>
-            <div class="name">John Kinash</div>
-            <div class="role">Business Development, North America</div>
-            <a href="mailto:john.kinash@cpxtech.ai">john.kinash@cpxtech.ai</a>
-          </li>
-          <li>
-            <div class="name">Matthew Mok</div>
-            <div class="role">Business Development</div>
-            <a href="mailto:matthew.mok@cpxtech.ai">matthew.mok@cpxtech.ai</a>
-          </li>
-        </ul>
-      </section>
+      <div class="mt-10 flex flex-wrap items-center gap-5">
+        <a class='bg-cta hover:bg-bluedeep transition text-white font-medium px-6 py-3 rounded-md shadow-lg shadow-black/40' href='contact.html'>
+          Book a technical consult
+        </a>
+        <a href="#reserved" class="text-tint/85 hover:text-white transition text-sm font-medium">
+          How reserved capacity works &rarr;
+        </a>
+      </div>
     </div>
   </div>
-</main>
+</section>
 
-<footer>
-  <div class="wrap footrow">
-    <span>&copy; 2026 CPX Technologies Inc.</span>
-    <span>Santa Clara, California</span>
+<!-- ============================================ 2. THE THREE BUCKETS -->
+<section id="what-you-get" class="bg-white border-b border-hair py-20 lg:py-24">
+  <div class="max-w-content mx-auto px-6">
+
+    <div class="max-w-3xl reveal">
+      <p class="eyebrow text-cta mb-4">Why CPX</p>
+      <h2 class="font-display font-extrabold text-3xl lg:text-4xl tracking-tight leading-[1.1] text-navy">
+        The hardware, the contract, and where it runs.
+      </h2>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-6 lg:gap-8">
+
+      <!-- Bucket 1 -->
+      <div class="border border-hair rounded-xl p-7 lg:p-8 hover:border-cta/40 hover:shadow-lg hover:shadow-navy/5 transition reveal">
+        <div class="w-11 h-11 rounded-lg bg-tint flex items-center justify-center mb-6">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+               class="w-[22px] h-[22px] text-royal">
+            <rect x="3" y="4" width="18" height="6" rx="1.5"></rect>
+            <rect x="3" y="14" width="18" height="6" rx="1.5"></rect>
+            <line x1="6.5" y1="7" x2="6.5" y2="7"></line>
+            <line x1="6.5" y1="17" x2="6.5" y2="17"></line>
+            <line x1="14" y1="7" x2="18" y2="7"></line>
+            <line x1="14" y1="17" x2="18" y2="17"></line>
+          </svg>
+        </div>
+        <h3 class="font-display font-extrabold text-xl text-cta mb-5">The machine</h3>
+        <ul class="space-y-4 text-body leading-relaxed">
+          <li class="flex gap-3">
+            <span class="mt-[9px] w-1.5 h-1.5 rounded-full bg-cta shrink-0"></span>
+            <span><strong class="text-navy font-semibold">The hardware.</strong> NVIDIA B300, eight
+            GPUs per node, 288GB of HBM3e per GPU and 2.1TB of GPU memory per server.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-[9px] w-1.5 h-1.5 rounded-full bg-cta shrink-0"></span>
+            <span><strong class="text-navy font-semibold">Built to your spec.</strong> NVLink at 1.8 TB/s
+            and 800G networking, configured to your architecture and storage profile before it goes in
+            the rack.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-[9px] w-1.5 h-1.5 rounded-full bg-cta shrink-0"></span>
+            <span><strong class="text-navy font-semibold">Bare metal.</strong> No hypervisor and no shared tenancy. You get root access and run what you want.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Bucket 2 -->
+      <div class="border border-hair rounded-xl p-7 lg:p-8 hover:border-cta/40 hover:shadow-lg hover:shadow-navy/5 transition reveal" style="transition-delay:110ms">
+        <div class="w-11 h-11 rounded-lg bg-tint flex items-center justify-center mb-6">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+               class="w-[22px] h-[22px] text-royal">
+            <rect x="4" y="10.5" width="16" height="10" rx="2"></rect>
+            <path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"></path>
+            <line x1="12" y1="14.5" x2="12" y2="16.5"></line>
+          </svg>
+        </div>
+        <h3 class="font-display font-extrabold text-xl text-cta mb-5">The term</h3>
+        <ul class="space-y-4 text-body leading-relaxed">
+          <li class="flex gap-3">
+            <span class="mt-[9px] w-1.5 h-1.5 rounded-full bg-cta shrink-0"></span>
+            <span><strong class="text-navy font-semibold">Yours for the term.</strong> Nodes are allocated to you for the whole term. They are not pooled or shared, and they do not get reassigned when a larger customer turns up.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-[9px] w-1.5 h-1.5 rounded-full bg-cta shrink-0"></span>
+            <span><strong class="text-navy font-semibold">No limits on use.</strong> The node is yours around the clock, with no preemption, no burst limit and no penalty for running it at full utilisation.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-[9px] w-1.5 h-1.5 rounded-full bg-cta shrink-0"></span>
+            <span><strong class="text-navy font-semibold">About five weeks.</strong> That is the time from signature to a cluster you can log into, built to your configuration.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Bucket 3 -->
+      <div class="border border-hair rounded-xl p-7 lg:p-8 hover:border-cta/40 hover:shadow-lg hover:shadow-navy/5 transition reveal" style="transition-delay:220ms">
+        <div class="w-11 h-11 rounded-lg bg-tint flex items-center justify-center mb-6">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+               class="w-[22px] h-[22px] text-royal">
+            <path d="M13 2.5 4.5 13.5H11l-.5 8L19.5 10.5H13z"></path>
+          </svg>
+        </div>
+        <h3 class="font-display font-extrabold text-xl text-cta mb-5">The place</h3>
+        <ul class="space-y-4 text-body leading-relaxed">
+          <li class="flex gap-3">
+            <span class="mt-[9px] w-1.5 h-1.5 rounded-full bg-cta shrink-0"></span>
+            <span><strong class="text-navy font-semibold">Vancouver, Tier III.</strong> High density power and cooling, network presence in the downtown carrier hotel, and onramps to the major clouds.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-[9px] w-1.5 h-1.5 rounded-full bg-cta shrink-0"></span>
+            <span><strong class="text-navy font-semibold">Hydroelectric power.</strong> About 90 percent of British Columbia's electricity is hydroelectric, so your cluster runs on a clean grid that is already there.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-[9px] w-1.5 h-1.5 rounded-full bg-cta shrink-0"></span>
+            <span><strong class="text-navy font-semibold">Open across North America.</strong> Canadian and United States sites, so you can put the cluster in the jurisdiction your workload needs.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 2b. PROOF BAR -->
+<section class="bg-navy-deep border-y border-white/10">
+  <div class="max-w-content mx-auto px-6 py-10 grid grid-cols-2 lg:grid-cols-4 gap-y-8">
+    <div class="text-center lg:border-r border-white/10">
+      <div class="font-stat font-bold text-4xl text-white">288<span class="text-2xl text-tint/70">GB</span></div>
+      <div class="eyebrow text-lightgray mt-2">HBM3e per GPU</div>
+    </div>
+    <div class="text-center lg:border-r border-white/10">
+      <div class="font-stat font-bold text-4xl text-white">2.1<span class="text-2xl text-tint/70">TB</span></div>
+      <div class="eyebrow text-lightgray mt-2">GPU memory per node</div>
+    </div>
+    <div class="text-center lg:border-r border-white/10">
+      <div class="font-stat font-bold text-4xl text-white">8<span class="text-2xl text-tint/70">GPU</span></div>
+      <div class="eyebrow text-lightgray mt-2">Per B300 node</div>
+    </div>
+    <div class="text-center">
+      <div class="font-stat font-bold text-4xl text-white">100<span class="text-2xl text-tint/70">%</span></div>
+      <div class="eyebrow text-lightgray mt-2">Dedicated, never shared</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 2b. NVIDIA PREFERRED PARTNER -->
+<section class="bg-white border-b border-hair">
+  <div class="max-w-content mx-auto px-6 py-14 lg:py-16
+              flex flex-col md:flex-row md:items-center gap-8 md:gap-12">
+
+    <div class="shrink-0">
+      <img src="assets/nvidia-preferred-partner.png"
+           alt="NVIDIA Preferred Partner"
+           width="362" height="122"
+           class="h-14 sm:h-16 w-auto rounded-sm">
+    </div>
+
+    <div class="hidden md:block w-px self-stretch bg-hair"></div>
+
+    <div class="md:flex-1">
+      <p class="eyebrow text-cta mb-3">NVIDIA Preferred Partner</p>
+      <p class="text-[17px] text-body leading-relaxed max-w-2xl">
+        CPX is an NVIDIA Preferred Partner with a direct allocation of Blackwell hardware. The
+        servers in our racks come from NVIDIA rather than a broker or a resold contract, so we can
+        give you a delivery date.
+      </p>
+      <div class="mt-5 flex flex-wrap items-center gap-x-7 gap-y-2">
+        <a href="https://marketplace.nvidia.com/en-us/enterprise/partners/?page=1&amp;limit=15&amp;name=freyr-technology-ai-pte-ltd"
+           target="_blank" rel="noopener noreferrer"
+           class="text-cta hover:text-bluedeep transition font-medium text-[15px]">
+          See us on the NVIDIA marketplace &rarr;
+        </a>
+        <a class='text-muted hover:text-navy transition font-medium text-[15px]' href='nvidia-b300.html'>
+          B300 specifications &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 3. THE PRODUCT -->
+<section id="platform" class="bg-offwhite border-b border-hair py-24 lg:py-32">
+  <div class="max-w-content mx-auto px-6">
+    <div class="grid lg:grid-cols-12 gap-14 lg:items-center">
+      <div class="lg:col-span-6 reveal">
+        <p class="eyebrow text-cta mb-5">The product</p>
+        <h2 class="font-display font-extrabold text-4xl lg:text-5xl tracking-tight leading-[1.05] text-navy">
+          We configure the hardware to your workload before it ships.
+        </h2>
+        <p class="mt-8 text-body text-lg leading-relaxed">
+          You contract the whole server, not a share of one, with no layers you did not ask for.
+        </p>
+      </div>
+
+      <div class="lg:col-span-6 reveal" style="transition-delay:90ms">
+        <figure class="relative">
+          <img src="assets/b300-node.jpg"
+               srcset="assets/b300-node-900.jpg 900w, assets/b300-node.jpg 1600w"
+               sizes="(min-width:1024px) 520px, 92vw"
+               alt="An eight-GPU NVIDIA HGX B300 server"
+               class="rounded-xl w-full aspect-[5/4] object-contain bg-white p-6 shadow-xl shadow-navy/10"
+               loading="lazy" decoding="async">
+          <div class="absolute inset-0 rounded-xl ring-1 ring-inset ring-navy/10 pointer-events-none"></div>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Three step strip -->
+    <div class="mt-16 lg:mt-20 border-t border-hair pt-12">
+      <div class="grid md:grid-cols-3 gap-10 md:gap-8">
+
+        <div class="reveal">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="font-stat font-bold text-cta text-sm">01</span>
+            <span class="h-px flex-1 bg-hair"></span>
+          </div>
+          <h3 class="font-display font-extrabold text-navy text-xl mb-2">You spec it</h3>
+          <p class="text-body leading-relaxed">
+            Your architecture, your storage profile, your interconnect topology.
+          </p>
+        </div>
+
+        <div class="reveal" style="transition-delay:110ms">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="font-stat font-bold text-cta text-sm">02</span>
+            <span class="h-px flex-1 bg-hair"></span>
+          </div>
+          <h3 class="font-display font-extrabold text-navy text-xl mb-2">We build it</h3>
+          <p class="text-body leading-relaxed">
+            Configured and burned in before it goes into the rack.
+          </p>
+        </div>
+
+        <div class="reveal" style="transition-delay:220ms">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="font-stat font-bold text-cta text-sm">03</span>
+            <span class="h-px flex-1 bg-hair"></span>
+          </div>
+          <h3 class="font-display font-extrabold text-navy text-xl mb-2">You get access</h3>
+          <p class="text-body leading-relaxed">
+            Bare metal with root access and nothing in the way.
+          </p>
+        </div>
+
+      </div>
+
+      <p class="mt-12 text-body leading-relaxed">
+        If you would rather buy inference by the token than run servers,
+        <span class="text-navy font-medium">we do that too, through Infer Street.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 5. THE STRUCTURE -->
+<section id="reserved" class="relative bg-navy py-24 lg:py-32 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none"
+       style="background:radial-gradient(760px 420px at 15% 100%, rgba(27,109,182,.18), transparent 60%)"></div>
+
+  <div class="relative max-w-content mx-auto px-6">
+    <div class="max-w-3xl reveal">
+      <p class="eyebrow text-tint/70 mb-5">The structure</p>
+      <h2 class="font-display font-extrabold text-4xl lg:text-5xl tracking-tight leading-[1.05] text-white">
+        On demand or under contract.
+      </h2>
+      <p class="mt-7 text-tint/80 text-lg leading-relaxed">
+        Spin up, spin down, pay for what you use. That is the right answer for a workload that runs occasionally. If yours runs continuously, the two are worth comparing.
+      </p>
+    </div>
+
+    <!-- Comparison -->
+    <div class="mt-14 rounded-2xl border border-white/15 overflow-hidden reveal">
+      <div class="grid grid-cols-2 border-b border-white/15 bg-white/[0.04]">
+        <div class="px-4 py-4 sm:px-7 sm:py-5 border-r border-white/15">
+          <p class="eyebrow text-lightgray">Buying on demand</p>
+        </div>
+        <div class="px-4 py-4 sm:px-7 sm:py-5">
+          <p class="eyebrow text-cta">Contracting with CPX</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 border-b border-white/10">
+        <div class="px-4 py-5 sm:px-7 sm:py-6 border-r border-white/10 text-tint/65 leading-relaxed text-[15px] sm:text-base">
+          The scheduler decides which machine you get.
+        </div>
+        <div class="px-4 py-5 sm:px-7 sm:py-6 text-white leading-relaxed text-[15px] sm:text-base">
+          The machine is yours for the whole term and cannot be reassigned.
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 border-b border-white/10">
+        <div class="px-4 py-5 sm:px-7 sm:py-6 border-r border-white/10 text-tint/65 leading-relaxed text-[15px] sm:text-base">
+          Capacity you had last quarter may not be there next quarter.
+        </div>
+        <div class="px-4 py-5 sm:px-7 sm:py-6 text-white leading-relaxed text-[15px] sm:text-base">
+          Racked, powered and allocated to you before the term starts.
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 border-b border-white/10">
+        <div class="px-4 py-5 sm:px-7 sm:py-6 border-r border-white/10 text-tint/65 leading-relaxed text-[15px] sm:text-base">
+          Performance depends on who else is on the box.
+        </div>
+        <div class="px-4 py-5 sm:px-7 sm:py-6 text-white leading-relaxed text-[15px] sm:text-base">
+          Nothing else runs on it, so it performs the same in year three as on day one.
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2">
+        <div class="px-4 py-5 sm:px-7 sm:py-6 border-r border-white/10 text-tint/65 leading-relaxed text-[15px] sm:text-base">
+          <strong class="text-white font-semibold">Repriced</strong> whenever the market moves.
+        </div>
+        <div class="px-4 py-5 sm:px-7 sm:py-6 text-white leading-relaxed text-[15px] sm:text-base">
+          A fixed term and a fixed price you can put in a budget.
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-10 text-white font-medium text-xl leading-relaxed max-w-3xl reveal">
+      It is a bigger commitment than clicking a button. It also turns your compute cost into a fixed line in the budget rather than a moving one.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================ 6. THE CONSTRAINT -->
+<section class="bg-offwhite border-y border-hair py-24 lg:py-32">
+  <div class="max-w-content mx-auto px-6">
+    <div class="max-w-3xl reveal">
+      <p class="eyebrow text-cta mb-5">The constraint</p>
+      <h2 class="font-display font-extrabold text-4xl lg:text-5xl tracking-tight leading-[1.05] text-navy">
+        In British Columbia, power is the constraint.
+      </h2>
+      <p class="mt-7 text-body text-lg leading-relaxed">
+        Across North America, AI capacity gets announced in gigawatts and delivered years later. British Columbia has far less room than that.
+      </p>
+    </div>
+
+    <!-- The scarcity, in three numbers -->
+    <div class="mt-14 grid sm:grid-cols-3 gap-px bg-hair rounded-xl overflow-hidden border border-hair">
+
+      <div class="bg-white p-7 lg:p-8 reveal">
+        <div class="font-stat font-bold text-5xl text-navy">300<span class="text-2xl text-cta ml-1">MW</span></div>
+        <p class="mt-4 text-body leading-relaxed">
+          All the new power BC Hydro will allocate to AI data centres over two years, under a
+          competitive process.
+        </p>
+      </div>
+
+      <div class="bg-white p-7 lg:p-8 reveal" style="transition-delay:110ms">
+        <div class="font-stat font-bold text-5xl text-navy">~60<span class="text-2xl text-cta ml-1">MW</span></div>
+        <p class="mt-4 text-body leading-relaxed">
+          Serving every data centre in the province today. The base this is being added to is small.
+        </p>
+      </div>
+
+      <div class="bg-white p-7 lg:p-8 reveal" style="transition-delay:220ms">
+        <div class="font-stat font-bold text-5xl text-navy">2026</div>
+        <p class="mt-4 text-body leading-relaxed">
+          When allocation decisions are made. Most applicants will not get power.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="mt-12 grid lg:grid-cols-2 gap-8 lg:gap-14 reveal">
+      <p class="text-body text-lg leading-relaxed">
+        Where power is limited, what matters is being connected already.
+      </p>
+      <p class="text-navy font-medium text-xl leading-relaxed">
+        CPX's capacity is contracted, powered and running in Vancouver today.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 7. WHERE IT RUNS -->
+<section id="facilities" class="bg-white py-24 lg:py-32">
+  <div class="max-w-content mx-auto px-6 grid lg:grid-cols-12 gap-14 items-center">
+    <div class="lg:col-span-6 order-2 lg:order-1">
+      <figure class="relative">
+        <img src="assets/hydro-power.jpg"
+             alt="Aerial view of a hydroelectric dam and reservoir"
+             class="rounded-xl w-full aspect-[4/3] object-cover shadow-xl shadow-navy/10"
+             loading="lazy" decoding="async">
+        <div class="absolute inset-0 rounded-xl ring-1 ring-inset ring-navy/10 pointer-events-none"></div>
+        <figcaption class="mt-4 text-sm text-muted leading-relaxed">
+          Roughly 90 percent of British Columbia's electricity is hydroelectric, and that grid was built long before AI needed it.
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="lg:col-span-6 order-1 lg:order-2">
+      <p class="eyebrow text-cta mb-5">Where it runs</p>
+      <h2 class="font-display font-extrabold text-4xl lg:text-5xl tracking-tight leading-[1.05] text-navy">
+        Vancouver, Tier III, on hydroelectric power.
+      </h2>
+
+      <div class="mt-9 space-y-6 text-body text-lg leading-relaxed">
+        <p>
+          CPX compute runs in eStruxture's VAN-2 and VAN-3 facilities, with high density power and
+          cooling built for AI workloads. Network presence at Cologix in downtown Vancouver puts us
+          in the Harbour Centre carrier hotel with direct access to the Vancouver Internet Exchange
+          and onramps to AWS, Azure and Google Cloud.
+        </p>
+        <p>
+          British Columbia's grid is hydroelectric, so the power behind your cluster is renewable
+          without building a generation project for it. Latency across the Greater Vancouver region
+          runs around 5 milliseconds. For teams with existing infrastructure in a hyperscaler region,
+          the cloud onramps mean a hybrid architecture works without replumbing your network. United
+          States sites follow the same standard.
+        </p>
+        <p class="text-navy font-medium">
+          Data processed on CPX hardware stays in the facility you contracted.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 8. REASONS TO BELIEVE -->
+<section id="company" class="bg-offwhite border-y border-hair py-20 lg:py-24">
+  <div class="max-w-content mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <div>
+        <div class="h-16 flex items-end mb-5">
+          <div class="w-10 h-[2px] bg-cta"></div>
+        </div>
+        <h3 class="font-display font-extrabold text-lg text-navy mb-2">NVIDIA Preferred Partner since 2025</h3>
+        <p class="text-body leading-relaxed">
+          A direct allocation of Blackwell hardware, not resold capacity.
+          <a href="https://marketplace.nvidia.com/en-us/enterprise/partners/?page=1&amp;limit=15&amp;name=freyr-technology-ai-pte-ltd"
+          target="_blank" rel="noopener noreferrer"
+          class="text-cta hover:text-bluedeep font-medium">Listed
+          on the NVIDIA marketplace</a>.
+        </p>
+      </div>
+
+      <div>
+        <div class="h-16 flex items-end mb-5">
+          <div class="w-10 h-[2px] bg-cta"></div>
+        </div>
+        <h3 class="font-display font-extrabold text-lg text-navy mb-2">Contracted capacity, not proposed capacity</h3>
+        <p class="text-body leading-relaxed">
+          Hardware under contract and colocation under agreement in Vancouver facilities that are
+          running today, with United States sites following.
+        </p>
+      </div>
+
+      <div>
+        <div class="h-16 flex items-end mb-5">
+          <div class="w-10 h-[2px] bg-cta"></div>
+        </div>
+        <h3 class="font-display font-extrabold text-lg text-navy mb-2">A team you can reach</h3>
+        <p class="text-body leading-relaxed">
+          A North American team, a named engineer on every deployment, and a 24/7 operations team
+          behind them.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Team row -->
+    <div class="mt-14 pt-10 border-t border-hair">
+      <div class="grid grid-cols-2 gap-6 sm:gap-8 max-w-lg">
+
+        <figure>
+          <a href="https://www.linkedin.com/in/john-kinash/" target="_blank" rel="noopener noreferrer"
+             class="group block" aria-label="John Kinash on LinkedIn">
+            <img src="assets/team-john-kinash.jpg" alt="John Kinash" width="640" height="640"
+                 loading="lazy"
+                 class="w-full rounded-xl object-cover aspect-square ring-1 ring-inset ring-navy/10
+                        group-hover:ring-cta/50 transition">
+            <span class="mt-4 font-display font-extrabold text-navy group-hover:text-cta transition
+                         inline-flex items-center gap-1.5">
+              John Kinash
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"
+                   class="w-[15px] h-[15px] text-muted group-hover:text-cta transition shrink-0">
+                <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/>
+              </svg>
+            </span>
+          </a>
+          <figcaption>
+            <span class="block text-[13px] sm:text-sm text-body mt-0.5">CPX Technologies</span>
+            <a href="mailto:john.kinash@cpxtech.ai"
+               class="block text-muted hover:text-cta transition mt-1 whitespace-nowrap
+                      text-[11px] sm:text-[13px]">john.kinash@cpxtech.ai</a>
+          </figcaption>
+        </figure>
+
+        <figure>
+          <a href="https://www.linkedin.com/in/matthew-m-mok/" target="_blank" rel="noopener noreferrer"
+             class="group block" aria-label="Matthew Mok on LinkedIn">
+            <img src="assets/team-matthew-mok.jpg" alt="Matthew Mok" width="640" height="640"
+                 loading="lazy"
+                 class="w-full rounded-xl object-cover aspect-square ring-1 ring-inset ring-navy/10
+                        group-hover:ring-cta/50 transition">
+            <span class="mt-4 font-display font-extrabold text-navy group-hover:text-cta transition
+                         inline-flex items-center gap-1.5">
+              Matthew Mok
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"
+                   class="w-[15px] h-[15px] text-muted group-hover:text-cta transition shrink-0">
+                <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/>
+              </svg>
+            </span>
+          </a>
+          <figcaption>
+            <span class="block text-[13px] sm:text-sm text-body mt-0.5">CPX Technologies</span>
+            <a href="mailto:matthew.mok@cpxtech.ai"
+               class="block text-muted hover:text-cta transition mt-1 whitespace-nowrap
+                      text-[11px] sm:text-[13px]">matthew.mok@cpxtech.ai</a>
+          </figcaption>
+        </figure>
+
+      </div>
+
+      <a class='mt-8 inline-flex items-center gap-2 text-cta hover:text-bluedeep transition font-medium text-[15px]' href='team.html'>
+        Meet the North America team
+        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="w-4 h-4">
+          <path d="M7.5 4.5 13 10l-5.5 5.5L6.2 14.2 10.4 10 6.2 5.8z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 9. GLOBAL FOOTPRINT -->
+<section class="bg-navy-deep py-20 lg:py-24">
+  <div class="max-w-content mx-auto px-6">
+    <div class="grid lg:grid-cols-12 gap-14 items-center">
+      <div class="lg:col-span-5">
+        <p class="eyebrow text-tint/70 mb-5">Global footprint</p>
+        <h2 class="font-display font-extrabold text-3xl lg:text-4xl tracking-tight leading-[1.1] text-white">
+          Part of a group in four countries.
+        </h2>
+        <p class="mt-6 text-tint/75 text-lg leading-relaxed">
+          The Freyr group builds and operates AI infrastructure in Canada, the United States, Thailand and Indonesia. CPX Technologies Inc. is the North American arm, with its own entity, its own contracts and a team on the ground.
+        </p>
+        <p class="mt-5 text-tint/75 text-lg leading-relaxed">
+          The group builds sovereign compute. In Southeast Asia that means putting NVIDIA infrastructure inside the country using it, so national AI work runs on domestic soil under domestic rules. CPX does the same thing for North America.
+        </p>
+
+        <dl class="mt-8 grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
+          <div>
+            <dt class="font-stat font-bold text-2xl text-white">4</dt>
+            <dd class="eyebrow text-lightgray mt-1.5">Countries</dd>
+          </div>
+          <div>
+            <dt class="font-stat font-bold text-2xl text-white">30+</dt>
+            <dd class="eyebrow text-lightgray mt-1.5">People group-wide</dd>
+          </div>
+          <div>
+            <dt class="font-stat font-bold text-2xl text-white">2025</dt>
+            <dd class="eyebrow text-lightgray mt-1.5">NVIDIA partner since</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="lg:col-span-7">
+        <figure>
+          <img src="assets/global-presence.jpg"
+               srcset="assets/global-presence-900.jpg 900w, assets/global-presence.jpg 1600w"
+               sizes="(min-width:1024px) 640px, 92vw"
+               alt="World map with Canada, the United States, Thailand and Indonesia highlighted"
+               width="1600" height="761" loading="lazy" decoding="async"
+               class="w-full rounded-xl bg-white ring-1 ring-inset ring-white/15 shadow-xl shadow-black/20">
+          <figcaption class="mt-4 text-sm text-lightgray leading-relaxed">
+            Freyr group operating regions. CPX serves customers across North America.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 10. CLOSING CTA -->
+<section id="contact" class="relative bg-navy py-24 lg:py-32 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none"
+       style="background:radial-gradient(700px 400px at 50% 0%, rgba(27,109,182,.22), transparent 65%)"></div>
+
+  <div class="relative max-w-3xl mx-auto px-6 text-center">
+    <h2 class="font-display font-extrabold text-4xl lg:text-5xl tracking-tight leading-[1.05] text-white">
+      Capacity goes to whoever commits first.
+    </h2>
+    <p class="mt-7 text-tint/80 text-lg leading-relaxed">
+      Nodes are built to your specification before deployment, so we allocate once you commit. The 2026 deployment window is open.
+    </p>
+    <!-- Contact card -->
+    <div class="mt-12 mx-auto max-w-lg rounded-2xl border border-white/15 bg-white/[0.06] backdrop-blur p-8 sm:p-10">
+      <p class="eyebrow text-tint/70">Talk to</p>
+      <p class="mt-3 font-display font-extrabold text-2xl text-white">John Kinash</p>
+      <p class="mt-1 text-lightgray">Business Development, North America</p>
+
+      <div class="mt-8 flex flex-col sm:flex-row gap-3">
+        <a href="mailto:john.kinash@cpxtech.ai"
+           class="flex-1 bg-cta hover:bg-bluedeep transition text-white font-medium px-6 py-4 rounded-md">
+          Email
+        </a>
+        <a href="https://www.linkedin.com/in/john-kinash/" target="_blank" rel="noopener noreferrer"
+           class="flex-1 border border-white/25 hover:border-white/60 hover:bg-white/5 transition text-white font-medium px-6 py-4 rounded-md">
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="mt-7 pt-6 border-t border-white/10 space-y-2 text-tint/85">
+        <a href="mailto:john.kinash@cpxtech.ai"
+           class="block hover:text-white transition">john.kinash@cpxtech.ai</a>
+      </div>
+    </div>
+
+    <p class="mt-9 text-lightgray leading-relaxed">
+      Tell us your model, your scale and your timeline.<br class="hidden sm:block">
+      We will tell you whether we can help.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================ FOOTER -->
+<footer class="bg-navy-slate text-lightgray">
+  <div class="max-w-content mx-auto px-6 py-12">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+      <div>
+        <img src="assets/cpx-wordmark-white.svg" alt="CPX Group"
+             class="h-9 w-auto opacity-90" width="1208" height="306">
+        <p class="mt-5 text-sm leading-relaxed max-w-sm">
+          CPX Technologies Inc.<br>
+          Dedicated NVIDIA compute for teams across North America.
+        </p>
+      </div>
+      <div class="text-sm space-y-2 md:text-right">
+        <div class="text-white/90 font-medium">John Kinash</div>
+        <a href="mailto:john.kinash@cpxtech.ai" class="block hover:text-white transition">john.kinash@cpxtech.ai</a>
+        <a href="https://www.linkedin.com/in/john-kinash/" class="block hover:text-white transition">LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="rule my-9 opacity-40"></div>
+
+    <p class="text-xs text-lightgray/60 leading-relaxed">
+      &copy; 2026 CPX Technologies Inc. &middot;
+      <a class='hover:text-white transition underline' href='privacy.html'>Privacy policy</a><br>
+      Specifications are indicative and subject to final configuration. Nothing on this page
+      constitutes a binding offer.
+    </p>
   </div>
 </footer>
+
+<script>
+(function () {
+  var items = document.querySelectorAll('.reveal');
+  if (!items.length) return;
+  if (!('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    items.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+  items.forEach(function (el) { io.observe(el); });
+  // Anything already on screen at load reveals immediately.
+  requestAnimationFrame(function () {
+    items.forEach(function (el) {
+      if (el.getBoundingClientRect().top < window.innerHeight) { el.classList.add('in'); }
+    });
+  });
+})();
+</script>
 
 </body>
 </html>

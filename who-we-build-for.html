@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/cpx-appicon-1024.png">
+<meta name="theme-color" content="#0E1622">
+<meta property="og:image" content="https://www.cpxtech.ai/assets/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<title>Who we build for | CPX Technologies</title>
+<meta name="description" content="Dedicated NVIDIA B300 compute for AI startups, regulated and public sector buyers, film, VFX, animation and game studios, and partners reselling inference.">
+<link rel="canonical" href="https://www.cpxtech.ai/who-we-build-for.html">
+
+<meta property="og:title" content="Who we build for | CPX Technologies">
+<meta property="og:description" content="Four kinds of team that need a machine of their own, not a slice of someone else's.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        navy:   { DEFAULT:'#0E1622', deep:'#0A111B', mid:'#182535', slate:'#232323' },
+        royal:  '#15588F',
+        bluedeep:'#15588F',
+        cta:    '#1B6DB6',
+        green:  '#8DCC3D',
+        tint:   '#D3E2F1',
+        offwhite:'#F6F8FB',
+        hair:   '#D8DFE9',
+        body:   '#475569',
+        muted:  '#64748B',
+        lightgray:'#94A3B8'
+      },
+      fontFamily: {
+        display: ['"Plus Jakarta Sans"','system-ui','sans-serif'],
+        sans:    ['Inter','system-ui','sans-serif'],
+        stat:    ['"Space Grotesk"','ui-monospace','monospace']
+      },
+      maxWidth: { content: '1140px' }
+    }
+  }
+}
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+  .rule { height:1px; background:linear-gradient(90deg,transparent,rgba(211,226,241,.28),transparent); }
+  .eyebrow { font-family:'Space Grotesk',monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; }
+
+  /* Segment imagery. Renders a labelled panel until a real photo is dropped in. */
+  .seg-img {
+    position: relative; margin-bottom: 28px;
+    aspect-ratio: 16 / 10; border-radius: 12px; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    background:
+      repeating-linear-gradient(45deg, rgba(71,85,105,.045) 0 12px, transparent 12px 24px),
+      linear-gradient(135deg, #EDF2F9 0%, #F6F8FB 100%);
+    box-shadow: inset 0 0 0 1px #E3EAF3;
+  }
+  .seg-img img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .seg-label {
+    font-family:'Space Grotesk',monospace; font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; color:#93A3B8; text-align:center; line-height:1.9;
+  }
+</style>
+</head>
+
+<body class="font-sans bg-white text-navy-slate antialiased">
+
+<!-- ============================================ NAV -->
+<header class="sticky top-0 z-50 bg-navy/95 backdrop-blur border-b border-white/10">
+  <div class="max-w-content mx-auto px-6 h-16 flex items-center justify-between">
+    <a class='flex items-center shrink-0' href='index.html'>
+      <img src="assets/cpx-wordmark-color.svg" alt="CPX Group"
+           class="h-9 w-auto" width="1208" height="306">
+    </a>
+    <nav class="hidden lg:flex items-center gap-8 text-sm text-tint/80">
+      <a class='hover:text-white transition' href='index.html#platform'>Platform</a>
+      <a class='hover:text-white transition' href='nvidia-b300.html'>NVIDIA B300</a>
+      <a class='text-white font-medium' href='who-we-build-for.html'>Who we build for</a>
+      <a class='hover:text-white transition' href='index.html#reserved'>Reserved capacity</a>
+      <a class='hover:text-white transition' href='index.html#facilities'>Facilities</a>
+      <a class='hover:text-white transition' href='team.html'>Our team</a>
+    </nav>
+    <a class='shrink-0 whitespace-nowrap bg-cta hover:bg-bluedeep transition
+              text-white font-medium rounded-md
+              text-[13px] px-3 py-1.5 sm:text-sm sm:px-4 sm:py-2' href='contact.html'>
+      <span class="sm:hidden">Book a consult</span>
+      <span class="hidden sm:inline">Book a technical consult</span>
+    </a>
+  </div>
+</header>
+
+<!-- ============================================ HERO -->
+<section class="relative bg-navy overflow-hidden isolate">
+  <div class="absolute inset-0 pointer-events-none"
+       style="background:
+         radial-gradient(880px 500px at 80% 8%, rgba(27,109,182,.28), transparent 62%),
+         radial-gradient(680px 460px at 6% 100%, rgba(21,88,143,.32), transparent 60%)"></div>
+
+  <div class="relative max-w-content mx-auto px-6 pt-16 pb-20 lg:pt-24 lg:pb-28">
+    <nav class="mb-7 text-[12px] text-tint/50" aria-label="Breadcrumb">
+      <a class='hover:text-tint transition' href='index.html'>CPX Technologies</a>
+      <span class="mx-2">/</span>
+      <span class="text-tint/80">Who we build for</span>
+    </nav>
+
+    <p class="eyebrow text-tint/75 mb-5">Who we build for</p>
+
+    <h1 class="font-display font-extrabold text-white tracking-tight leading-[1.02]
+               text-4xl sm:text-5xl lg:text-[3.75rem] max-w-4xl">
+      Four teams who need the whole machine.
+    </h1>
+
+    <p class="mt-8 text-lg lg:text-xl text-tint/85 leading-relaxed max-w-2xl">
+      Model builders who need the node to stay put, regulated buyers who cannot share a
+      physical host, studios whose render deadlines do not negotiate, and partners who would
+      rather resell inference than rack it. Different problems, one answer: the whole machine,
+      for the whole term.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================ SEGMENTS -->
+<section class="bg-white">
+  <div class="max-w-content mx-auto px-6 py-20 lg:py-28">
+    <!-- Segment imagery. Drop a photo at each assets/segment-*.jpg path and it renders in
+         place of the labelled panel. Recommended 1200x750 (16:10), landscape. -->
+    <div class="grid sm:grid-cols-2 gap-y-14 gap-x-14 lg:gap-x-20">
+
+      <article>
+        <div class="seg-img">
+          <span class="seg-label">AI training<br>and inference</span>
+          <img src="assets/segment-ai.jpg" alt="A small AI team working through a model architecture together in an open-plan office" onerror="this.remove()"
+               loading="lazy" decoding="async">
+        </div>
+        <div class="w-10 h-[2px] bg-cta mb-6"></div>
+        <h2 class="font-display font-extrabold text-navy text-2xl mb-4">AI startups and scale-ups</h2>
+        <p class="text-[16px] text-body leading-relaxed">
+          Teams training and serving their own models who want frontier hardware without a
+          hyperscaler in the middle. The hard part is usually getting enough contiguous GPU time to finish a run, on terms a Series A board will sign.
+        </p>
+      </article>
+
+      <article>
+        <div class="seg-img">
+          <span class="seg-label">Data that stays<br>in the country</span>
+          <img src="assets/network-city.jpg" alt="Aerial view of a dense downtown core" onerror="this.remove()"
+               loading="lazy" decoding="async">
+        </div>
+        <div class="w-10 h-[2px] bg-cta mb-6"></div>
+        <h2 class="font-display font-extrabold text-navy text-2xl mb-4">Regulated and public sector</h2>
+        <p class="text-[16px] text-body leading-relaxed">
+          Banks, hospitals, universities and government, plus the software companies trying to
+          sell into them. For those vendors, being able to name the exact facility is often what gets the account approved.
+        </p>
+      </article>
+
+      <article>
+        <div class="seg-img">
+          <span class="seg-label">Render<br>and simulation</span>
+          <img src="assets/segment-film.jpg" alt="Colourists and editors at work in a darkened post-production grading suite" onerror="this.remove()"
+               loading="lazy" decoding="async">
+        </div>
+        <div class="w-10 h-[2px] bg-cta mb-6"></div>
+        <h2 class="font-display font-extrabold text-navy text-2xl mb-4">Film, VFX, animation and games</h2>
+        <p class="text-[16px] text-body leading-relaxed">
+          Studios with render, simulation and generative pipelines that would rather keep the
+          work, and the footage, in the same city. Game production sits in the same building as
+          often as not, and asset generation now runs continuously rather than at milestones.
+          Unreleased material usually comes with contract terms about where it can be stored.
+        </p>
+      </article>
+
+      <article>
+        <div class="seg-img">
+          <span class="seg-label">Inference<br>by the token</span>
+          <img src="assets/segment-inferstreet.jpg" alt="The Infer Street wordmark"
+               onerror="this.remove()" loading="lazy" decoding="async">
+        </div>
+        <div class="w-10 h-[2px] bg-cta mb-6"></div>
+        <h2 class="font-display font-extrabold text-navy text-2xl mb-4">Infer Street, for partners who resell</h2>
+        <p class="text-[16px] text-body leading-relaxed">
+          Our inference layer, sold by the token rather than the node. Telecoms and platforms
+          that want to put AI in front of their own customers point their existing API gateway
+          at ours, keep their brand on the front, and price it themselves. The capacity, and
+          the service level that comes with it, passes straight through from us.
+        </p>
+        <p class="mt-5">
+          <a href="https://inferstreet.ai" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-1.5 text-[15px] font-medium text-cta
+                    hover:text-bluedeep transition">
+            inferstreet.com
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ ECOSYSTEM -->
+<section class="bg-offwhite border-y border-hair">
+  <div class="max-w-content mx-auto px-6 py-16 lg:py-20
+              flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-14">
+    <div class="lg:flex-1">
+      <p class="eyebrow text-cta mb-4">Ecosystem</p>
+      <h2 class="font-display font-extrabold text-navy text-2xl sm:text-3xl leading-tight mb-4">
+        We are also working with incubators and accelerators.
+      </h2>
+      <p class="text-[16px] text-body leading-relaxed max-w-2xl">
+        We want teams on frontier hardware early, before the architecture is built around whatever was cheapest at the time. If you run a programme anywhere in North America and
+        your companies are compute-bound, we should talk.
+      </p>
+    </div>
+    <div class="shrink-0">
+      <a class='inline-block bg-cta hover:bg-bluedeep transition text-white font-medium
+                px-7 py-4 rounded-md' href='contact.html'>
+        Start a conversation
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ CTA -->
+<section class="relative bg-navy-deep overflow-hidden isolate">
+  <div class="absolute inset-0 pointer-events-none"
+       style="background:radial-gradient(700px 400px at 50% 0%, rgba(27,109,182,.22), transparent 65%)"></div>
+
+  <div class="relative max-w-content mx-auto px-6 py-20 lg:py-24">
+    <div class="max-w-3xl">
+      <h2 class="font-display font-extrabold text-white tracking-tight text-3xl sm:text-4xl lg:text-[2.6rem] leading-[1.08]">
+        Tell us the workload, the scale and the timeline.
+      </h2>
+      <p class="mt-6 text-[17px] text-tint/80 leading-relaxed">
+        We will come back with a node count or a token price, and tell you if we are not the right fit.
+      </p>
+    </div>
+
+    <div class="mt-10 flex flex-col sm:flex-row gap-3 max-w-lg">
+      <a href="mailto:john.kinash@cpxtech.ai"
+         class="flex-1 bg-cta hover:bg-bluedeep transition text-white font-medium px-6 py-4 rounded-md text-center">
+        Email
+      </a>
+      <a href="contact.html"
+         class="flex-1 border border-white/25 hover:border-white/60 hover:bg-white/5 transition text-white font-medium px-6 py-4 rounded-md text-center">
+        All contacts
+      </a>
+    </div>
+
+    <p class="mt-6 text-[14px] text-tint/60">
+      John Kinash &middot; Business Development, North America &middot;
+      <a href="mailto:john.kinash@cpxtech.ai" class="hover:text-white transition">john.kinash@cpxtech.ai</a>
+      &middot;
+    </p>
+  </div>
+</section>
+
+<!-- ============================================ FOOTER -->
+<footer class="bg-navy-deep border-t border-white/10">
+  <div class="max-w-content mx-auto px-6 py-14">
+    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8">
+      <div>
+        <img src="assets/cpx-wordmark-white.svg" alt="CPX Group"
+             class="h-8 w-auto opacity-90" width="1208" height="306">
+        <p class="mt-4 text-[14px] text-tint/60 leading-relaxed">
+          CPX Technologies Inc.<br>
+          Dedicated NVIDIA compute for teams across North America.
+        </p>
+      </div>
+      <nav class="text-[14px] text-tint/60 space-y-2" aria-label="Footer">
+        <a class='block hover:text-white transition' href='index.html'>Home</a>
+        <a class='block hover:text-white transition' href='nvidia-b300.html'>NVIDIA B300</a>
+        <a class='block hover:text-white transition' href='who-we-build-for.html'>Who we build for</a>
+        <a class='block hover:text-white transition' href='index.html#facilities'>Facilities</a>
+        <a class='block hover:text-white transition' href='team.html'>Our team</a>
+        <a class='block hover:text-white transition' href='contact.html'>Contact</a>
+        <a class='block hover:text-white transition' href='privacy.html'>Privacy policy</a>
+      </nav>
+    </div>
+
+    <div class="rule my-10"></div>
+
+    <p class="text-[12px] text-tint/40 leading-relaxed">
+      &copy; 2026 CPX Technologies Inc. Specifications are indicative and subject to
+      final configuration. Nothing on this page constitutes a binding offer.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

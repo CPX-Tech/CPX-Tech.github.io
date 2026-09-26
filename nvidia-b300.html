@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/cpx-appicon-1024.png">
+<meta name="theme-color" content="#0E1622">
+<meta property="og:image" content="https://www.cpxtech.ai/assets/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<title>NVIDIA HGX B300 | CPX Technologies</title>
+<meta name="description" content="NVIDIA HGX B300 Blackwell Ultra nodes. Eight Blackwell Ultra SXM GPUs, 2.1TB HBM3e, 14.4 TB/s NVLink. Dedicated bare metal across North America.">
+<link rel="canonical" href="https://www.cpxtech.ai/nvidia-b300.html">
+
+<meta property="og:title" content="NVIDIA HGX B300 | CPX Technologies">
+<meta property="og:description" content="NVIDIA HGX B300 Blackwell Ultra nodes, deployed across North America. Full specifications and deployment detail.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        navy:   { DEFAULT:'#0E1622', deep:'#0A111B', mid:'#182535', slate:'#232323' },
+        royal:  '#15588F',
+        bluedeep:'#15588F',
+        cta:    '#1B6DB6',
+        green:  '#8DCC3D',
+        tint:   '#D3E2F1',
+        offwhite:'#F6F8FB',
+        hair:   '#D8DFE9',
+        body:   '#475569',
+        muted:  '#64748B',
+        lightgray:'#94A3B8'
+      },
+      fontFamily: {
+        display: ['"Plus Jakarta Sans"','system-ui','sans-serif'],
+        sans:    ['Inter','system-ui','sans-serif'],
+        stat:    ['"Space Grotesk"','ui-monospace','monospace']
+      },
+      maxWidth: { content: '1140px' }
+    }
+  }
+}
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  section[id] { scroll-margin-top: 5rem; }
+  body { -webkit-font-smoothing: antialiased; }
+  .rule { height:1px; background:linear-gradient(90deg,transparent,rgba(211,226,241,.28),transparent); }
+  .eyebrow { font-family:'Space Grotesk',monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; }
+  .spec th, .spec td { padding: 14px 18px; vertical-align: top; }
+  .spec tbody tr + tr { border-top: 1px solid #E7EDF5; }
+  .spec tbody tr:nth-child(odd) { background: #FAFCFE; }
+  .mono { font-family:'Space Grotesk',ui-monospace,monospace; }
+</style>
+</head>
+
+<body class="font-sans bg-white text-navy-slate antialiased">
+
+<!-- ============================================ NAV -->
+<header class="sticky top-0 z-50 bg-navy/95 backdrop-blur border-b border-white/10">
+  <div class="max-w-content mx-auto px-6 h-16 flex items-center justify-between">
+    <a class='flex items-center shrink-0' href='index.html'>
+      <img src="assets/cpx-wordmark-color.svg" alt="CPX Group"
+           class="h-9 w-auto" width="1208" height="306">
+    </a>
+    <nav class="hidden lg:flex items-center gap-7 text-sm text-tint/80">
+      <a class='hover:text-white transition' href='index.html#platform'>Platform</a>
+      <a class='text-white font-medium' href='nvidia-b300.html'>NVIDIA B300</a>
+      <a class='hover:text-white transition' href='who-we-build-for.html'>Who we build for</a>
+      <a class='hover:text-white transition' href='index.html#reserved'>Reserved capacity</a>
+      <a class='hover:text-white transition' href='index.html#facilities'>Facilities</a>
+      <a class='hover:text-white transition' href='team.html'>Our team</a>
+    </nav>
+    <a class='shrink-0 whitespace-nowrap bg-cta hover:bg-bluedeep transition
+              text-white font-medium rounded-md
+              text-[13px] px-3 py-1.5 sm:text-sm sm:px-4 sm:py-2' href='contact.html'>
+      <span class="sm:hidden">Book a consult</span>
+      <span class="hidden sm:inline">Book a technical consult</span>
+    </a>
+  </div>
+</header>
+
+<!-- ============================================ HERO -->
+<section class="relative bg-navy overflow-hidden isolate">
+  <div class="absolute inset-0 -z-10 pointer-events-none"
+       style="background:
+         radial-gradient(900px 520px at 78% 12%, rgba(27,109,182,.30), transparent 62%),
+         radial-gradient(700px 480px at 8% 96%, rgba(21,88,143,.34), transparent 60%)"></div>
+
+  <div class="relative max-w-content mx-auto px-6 pt-16 pb-20 lg:pt-24 lg:pb-28
+              grid lg:grid-cols-[1.05fr,1fr] gap-14 lg:gap-16 items-center">
+
+    <div>
+      <nav class="mb-7 text-[12px] text-tint/50" aria-label="Breadcrumb">
+        <a class='hover:text-tint transition' href='index.html'>CPX Technologies</a>
+        <span class="mx-2">/</span>
+        <span class="text-tint/80">NVIDIA B300</span>
+      </nav>
+
+      <p class="eyebrow text-tint/75 mb-5">NVIDIA HGX B300 &middot; Blackwell Ultra</p>
+
+      <h1 class="font-display font-extrabold text-white tracking-tight leading-[0.98]
+                 text-5xl sm:text-6xl lg:text-[4.25rem]">
+        The B300.<br>In North America.
+      </h1>
+
+      <p class="mt-7 text-lg lg:text-xl text-tint/85 leading-relaxed max-w-xl">
+        Eight NVIDIA Blackwell Ultra GPUs on a single baseboard, wired by fifth generation NVLink. The most capable AI node NVIDIA ships today, deployed across North America and contracted to you.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-3">
+        <a class='bg-cta hover:bg-bluedeep transition text-white font-medium px-7 py-4 rounded-md text-center' href='contact.html'>
+          Request the configuration sheet
+        </a>
+        <a href="#specs"
+           class="border border-white/25 hover:border-white/60 hover:bg-white/5 transition
+                  text-white font-medium px-7 py-4 rounded-md text-center">
+          Jump to specifications
+        </a>
+      </div>
+    </div>
+
+    <!-- HGX B300 product render, supplied September 2026 -->
+    <div class="relative">
+      <figure class="rounded-xl ring-1 ring-inset ring-white/12 p-4 sm:p-5
+                     shadow-2xl shadow-black/50"
+              style="background:#030305">
+        <img src="assets/b300-node.jpg"
+             srcset="assets/b300-node-900.jpg 900w, assets/b300-node.jpg 1308w"
+             sizes="(min-width:1024px) 480px, 90vw"
+             alt="An NVIDIA HGX B300 system, front three-quarter view"
+             width="1308" height="1093"
+             class="w-full h-auto rounded-lg"
+             fetchpriority="high" decoding="async">
+        <figcaption class="mt-4 px-1 text-[12px] text-tint/45 leading-relaxed">
+          NVIDIA HGX B300. Eight Blackwell Ultra SXM GPUs on a single baseboard, all-to-all
+          through a dual NVLink 5 switch system at 14.4 TB/s aggregate.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- figure strip -->
+  <div class="relative border-t border-white/10">
+    <div class="max-w-content mx-auto px-6 py-9 grid grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-6">
+      <div>
+        <p class="font-stat font-bold text-white text-3xl lg:text-4xl leading-none">
+          8<span class="text-tint/50 text-xl align-top ml-0.5">x</span>
+        </p>
+        <p class="mt-2 text-[13px] text-tint/60 leading-snug">Blackwell Ultra GPUs per node</p>
+      </div>
+      <div>
+        <p class="font-stat font-bold text-white text-3xl lg:text-4xl leading-none">
+          2.1<span class="text-tint/50 text-xl align-top ml-1">TB</span>
+        </p>
+        <p class="mt-2 text-[13px] text-tint/60 leading-snug">HBM3e memory per node</p>
+      </div>
+      <div>
+        <p class="font-stat font-bold text-white text-3xl lg:text-4xl leading-none">
+          144<span class="text-tint/50 text-xl align-top ml-1">PF</span>
+        </p>
+        <p class="mt-2 text-[13px] text-tint/60 leading-snug">FP4 tensor core, sparse</p>
+      </div>
+      <div>
+        <p class="font-stat font-bold text-white text-3xl lg:text-4xl leading-none">
+          14.4<span class="text-tint/50 text-xl align-top ml-1">TB/s</span>
+        </p>
+        <p class="mt-2 text-[13px] text-tint/60 leading-snug">Aggregate NVLink bandwidth</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ WHAT IT IS -->
+<section class="bg-white">
+  <div class="max-w-content mx-auto px-6 py-20 lg:py-28 grid lg:grid-cols-[1fr,1fr] gap-14 lg:gap-20 items-start">
+    <div>
+      <p class="eyebrow text-cta mb-5">The hardware</p>
+      <h2 class="font-display font-extrabold text-navy tracking-tight text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.08]">
+        Eight GPUs that work as one.
+      </h2>
+      <div class="mt-7 space-y-5 text-[17px] text-body leading-relaxed">
+        <p>
+          The HGX B300 puts eight Blackwell Ultra SXM modules on a single baseboard and
+          connects every GPU to every other GPU through a dual NVLink 5 switch system. Each
+          link runs at 1.8 TB/s, and the fabric carries 14.4 TB/s in aggregate.
+        </p>
+        <p>
+          Because the interconnect is not a bottleneck, a model spread across all eight GPUs behaves more like one device with 2.1 terabytes of memory than like eight devices passing tensors over a network. That matters most for large mixture of experts models, long context windows and large training runs.
+        </p>
+        <p>
+          Blackwell Ultra adds roughly twice the attention layer performance of standard Blackwell and 1.5 times the dense FP4 throughput. For reasoning models and long sequence inference, that is where the gain shows up.
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <img src="assets/network-city.jpg"
+           alt="Aerial view of a city grid, roads meeting at intersections"
+           class="rounded-xl w-full aspect-[5/4] object-cover shadow-xl shadow-navy/10"
+           loading="lazy" decoding="async">
+      <p class="mt-4 text-[13px] text-muted leading-relaxed">
+        On a B300 node the interconnect is wide enough that the eight GPUs behave as one pool of memory rather than eight separate destinations.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ SPECS -->
+<section id="specs" class="bg-offwhite border-y border-hair">
+  <div class="max-w-content mx-auto px-6 py-20 lg:py-28">
+    <div class="max-w-2xl">
+      <p class="eyebrow text-cta mb-5">Specifications</p>
+      <h2 class="font-display font-extrabold text-navy tracking-tight text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.08]">
+        NVIDIA HGX B300, per node.
+      </h2>
+      <p class="mt-6 text-[17px] text-body leading-relaxed">
+        Platform figures as published by NVIDIA for the HGX B300. CPX deployments are
+        configured to customer specification, so CPU, local storage and fabric topology are
+        set during the design phase rather than fixed here.
+      </p>
+    </div>
+
+    <div class="mt-12 overflow-x-auto rounded-xl ring-1 ring-inset ring-hair bg-white shadow-sm">
+      <table class="spec w-full text-[15px] min-w-[560px]">
+        <caption class="sr-only">NVIDIA HGX B300 platform specifications</caption>
+        <thead>
+          <tr class="bg-navy text-white text-left">
+            <th scope="col" class="font-display font-semibold w-[42%]">Specification</th>
+            <th scope="col" class="font-display font-semibold">HGX B300</th>
+          </tr>
+        </thead>
+        <tbody class="text-body">
+          <tr><th scope="row" class="text-left font-medium text-navy">Form factor</th><td class="mono">8x NVIDIA Blackwell Ultra SXM</td></tr>
+          <tr><th scope="row" class="text-left font-medium text-navy">Total GPU memory</th><td class="mono">2.1 TB HBM3e</td></tr>
+          <tr><th scope="row" class="text-left font-medium text-navy">FP4 tensor core</th><td class="mono">144 PFLOPS sparse &middot; 108 PFLOPS dense</td></tr>
+          <tr><th scope="row" class="text-left font-medium text-navy">FP8 / FP6 tensor core</th><td class="mono">72 PFLOPS sparse</td></tr>
+          <tr><th scope="row" class="text-left font-medium text-navy">INT8 tensor core</th><td class="mono">3 POPS sparse</td></tr>
+          <tr><th scope="row" class="text-left font-medium text-navy">FP16 / BF16 tensor core</th><td class="mono">36 PFLOPS sparse</td></tr>
+          <tr><th scope="row" class="text-left font-medium text-navy">TF32 tensor core</th><td class="mono">18 PFLOPS sparse</td></tr>
+          <tr><th scope="row" class="text-left font-medium text-navy">FP32</th><td class="mono">600 TFLOPS</td></tr>
+          <tr><th scope="row" class="text-left font-medium text-navy">FP64 / FP64 tensor core</th><td class="mono">10 TFLOPS</td></tr>
+          <tr><th scope="row" class="text-left font-medium text-navy">NVLink generation</th><td class="mono">Fifth generation, NVLink 5 Switch</td></tr>
+          <tr><th scope="row" class="text-left font-medium text-navy">NVLink GPU-to-GPU bandwidth</th><td class="mono">1.8 TB/s</td></tr>
+          <tr><th scope="row" class="text-left font-medium text-navy">Total NVLink bandwidth</th><td class="mono">14.4 TB/s</td></tr>
+          <tr><th scope="row" class="text-left font-medium text-navy">Networking bandwidth</th><td class="mono">1.6 TB/s &middot; 8x NVIDIA ConnectX-8</td></tr>
+          <tr><th scope="row" class="text-left font-medium text-navy">Attention performance</th><td class="mono">2x NVIDIA Blackwell</td></tr>
+          <tr class="bg-[#F1F6FC]"><th scope="row" class="text-left font-medium text-navy">Tenancy</th><td class="mono">Single tenant, bare metal, no hypervisor</td></tr>
+          <tr class="bg-[#F1F6FC]"><th scope="row" class="text-left font-medium text-navy">Location</th><td class="mono">Vancouver, British Columbia &middot; Tier III</td></tr>
+          <tr class="bg-[#F1F6FC]"><th scope="row" class="text-left font-medium text-navy">Term</th><td class="mono">Reserved, one to five years</td></tr>
+          <tr class="bg-[#F1F6FC]"><th scope="row" class="text-left font-medium text-navy">Deployment</th><td class="mono">Approximately five weeks from signature</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="mt-5 text-[13px] text-muted leading-relaxed max-w-3xl">
+      Platform figures per the
+      <a href="https://www.nvidia.com/en-us/data-center/hgx/" target="_blank" rel="noopener noreferrer"
+         class="text-cta hover:text-bluedeep underline underline-offset-2">NVIDIA HGX platform specifications</a>.
+      Sparse and dense figures are noted where NVIDIA distinguishes them. The final four rows
+      describe the CPX deployment rather than the NVIDIA platform.
+    </p>
+
+    <div class="mt-9 flex flex-col sm:flex-row gap-3">
+      <a class='bg-cta hover:bg-bluedeep transition text-white font-medium px-7 py-4 rounded-md text-center' href='contact.html'>
+        Request the CPX configuration sheet
+      </a>
+      <a href="https://resources.nvidia.com/en-us-blackwell-architecture/blackwell-ultra-datasheet"
+         target="_blank" rel="noopener noreferrer"
+         class="border border-hair hover:border-navy/40 hover:bg-white transition
+                text-navy font-medium px-7 py-4 rounded-md text-center">
+        NVIDIA Blackwell Ultra datasheet
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ WHAT FREYR ADDS -->
+<section class="relative bg-navy overflow-hidden isolate">
+  <div class="absolute inset-0 pointer-events-none"
+       style="background:radial-gradient(760px 420px at 15% 100%, rgba(27,109,182,.18), transparent 60%)"></div>
+
+  <div class="relative max-w-content mx-auto px-6 py-20 lg:py-28">
+    <div class="max-w-2xl">
+      <p class="eyebrow text-tint/70 mb-5">What CPX adds</p>
+      <h2 class="font-display font-extrabold text-white tracking-tight text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.08]">
+        The chip is the same anywhere. The terms are not.
+      </h2>
+      <p class="mt-6 text-[17px] text-tint/80 leading-relaxed">
+        Anyone with an allocation can quote you a B300. What differs is who else is on the box, where it sits, and whether it is still yours in eighteen months.
+      </p>
+    </div>
+
+    <div class="mt-14 grid sm:grid-cols-3 gap-y-10 gap-x-8">
+      <div>
+        <p class="font-stat text-tint/40 text-sm mb-4">01</p>
+        <h3 class="font-display font-extrabold text-white text-xl mb-3">Bare metal, single tenant</h3>
+        <p class="text-[15px] text-tint/70 leading-relaxed">
+          No hypervisor between your code and the hardware, and no other tenant on your baseboard. Nothing else competes for the node, so it performs the same in year three as on day one.
+        </p>
+      </div>
+      <div>
+        <p class="font-stat text-tint/40 text-sm mb-4">02</p>
+        <h3 class="font-display font-extrabold text-white text-xl mb-3">Vancouver facilities</h3>
+        <p class="text-[15px] text-tint/70 leading-relaxed">
+          Tier III colocation in Vancouver, on a grid that is roughly ninety percent hydroelectric, with United States sites following. Data processed on CPX hardware stays in the facility you contracted.
+        </p>
+      </div>
+      <div>
+        <p class="font-stat text-tint/40 text-sm mb-4">03</p>
+        <h3 class="font-display font-extrabold text-white text-xl mb-3">Configured before it ships</h3>
+        <p class="text-[15px] text-tint/70 leading-relaxed">
+          Storage profile, interconnect topology and CPU pairing are set during design rather than worked around after delivery. Roughly five weeks from signature to a cluster you can log into.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ USE CASES -->
+<section class="bg-white">
+  <div class="max-w-content mx-auto px-6 py-20 lg:py-28">
+    <div class="max-w-2xl">
+      <p class="eyebrow text-cta mb-5">Use cases</p>
+      <h2 class="font-display font-extrabold text-navy tracking-tight text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.08]">
+        Three workloads worth the node.
+      </h2>
+    </div>
+
+    <div class="mt-14 grid md:grid-cols-3 gap-y-12 gap-x-10">
+      <div class="border-t-2 border-cta pt-6">
+        <h3 class="font-display font-extrabold text-navy text-xl mb-3">Reasoning and agentic inference</h3>
+        <p class="text-[15px] text-body leading-relaxed">
+          Blackwell Ultra roughly doubles attention layer throughput against standard Blackwell. Long chains of thought and multi step agent loops spend most of their time in that path, so the gain shows up in tokens per second.
+        </p>
+      </div>
+      <div class="border-t-2 border-cta pt-6">
+        <h3 class="font-display font-extrabold text-navy text-xl mb-3">Frontier and foundation model training</h3>
+        <p class="text-[15px] text-body leading-relaxed">
+          72 PFLOPS of FP8 and 2.1 TB of pooled HBM3e per node, with 14.4 TB/s of NVLink
+          behind it. Models that would need heavy quantisation or sharding elsewhere fit and train here without it.
+        </p>
+      </div>
+      <div class="border-t-2 border-cta pt-6">
+        <h3 class="font-display font-extrabold text-navy text-xl mb-3">Regulated and sovereign workloads</h3>
+        <p class="text-[15px] text-body leading-relaxed">
+          Health, financial and public sector work that cannot leave the country it is regulated in, or share a physical host. Single tenant hardware in a named facility gives your privacy officer a clear answer.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ CTA -->
+<section class="relative bg-navy-deep overflow-hidden isolate">
+  <div class="absolute inset-0 pointer-events-none"
+       style="background:radial-gradient(700px 400px at 50% 0%, rgba(27,109,182,.22), transparent 65%)"></div>
+
+  <div class="relative max-w-content mx-auto px-6 py-20 lg:py-24">
+    <div class="max-w-3xl">
+      <h2 class="font-display font-extrabold text-white tracking-tight text-3xl sm:text-4xl lg:text-[2.6rem] leading-[1.08]">
+        Tell us the model, the scale and the timeline.
+      </h2>
+      <p class="mt-6 text-[17px] text-tint/80 leading-relaxed">
+        We will come back with a node count and a configuration, and tell you if the B300 is not the right part for the job. Capacity goes to whoever commits first, and the 2026 deployment window is open.
+      </p>
+    </div>
+
+    <div class="mt-10 flex flex-col sm:flex-row gap-3 max-w-lg">
+      <a href="mailto:john.kinash@cpxtech.ai"
+         class="flex-1 bg-cta hover:bg-bluedeep transition text-white font-medium px-6 py-4 rounded-md text-center">
+        Email
+      </a>
+      <a href="contact.html"
+         class="flex-1 border border-white/25 hover:border-white/60 hover:bg-white/5 transition text-white font-medium px-6 py-4 rounded-md text-center">
+        All contacts
+      </a>
+    </div>
+
+    <p class="mt-6 text-[14px] text-tint/60">
+      John Kinash &middot; Business Development, North America &middot;
+      <a href="mailto:john.kinash@cpxtech.ai" class="hover:text-white transition">john.kinash@cpxtech.ai</a>
+      &middot;
+    </p>
+  </div>
+</section>
+
+<!-- ============================================ FOOTER -->
+<footer class="bg-navy-deep border-t border-white/10">
+  <div class="max-w-content mx-auto px-6 py-14">
+    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8">
+      <div>
+        <img src="assets/cpx-wordmark-white.svg" alt="CPX Group"
+             class="h-8 w-auto opacity-90" width="1208" height="306">
+        <p class="mt-4 text-[14px] text-tint/60 leading-relaxed">
+          CPX Technologies Inc.<br>
+          Dedicated NVIDIA compute for teams across North America.
+        </p>
+      </div>
+      <nav class="text-[14px] text-tint/60 space-y-2" aria-label="Footer">
+        <a class='block hover:text-white transition' href='index.html'>Home</a>
+        <a class='block hover:text-white transition' href='nvidia-b300.html'>NVIDIA B300</a>
+        <a class='block hover:text-white transition' href='index.html#facilities'>Facilities</a>
+        <a class='block hover:text-white transition' href='team.html'>Our team</a>
+        <a class='block hover:text-white transition' href='contact.html'>Contact</a>
+        <a class='block hover:text-white transition' href='privacy.html'>Privacy policy</a>
+      </nav>
+    </div>
+
+    <div class="rule my-10"></div>
+
+    <p class="text-[12px] text-tint/40 leading-relaxed">
+      &copy; 2026 CPX Technologies Inc. NVIDIA, HGX, Blackwell, NVLink and ConnectX
+      are trademarks of NVIDIA Corporation. Platform specifications are published by NVIDIA
+      and are subject to change. CPX deployment figures are indicative and subject to final
+      configuration. Nothing on this page constitutes a binding offer.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
