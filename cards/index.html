@@ -52,29 +52,29 @@ button:disabled{opacity:.55;cursor:default}
 
 <div class="wrap">
   <header>
-    <h1>CPX Business Cards<small>Fill in your details, check the proof, download a print-ready PDF. Logo size and layout are fixed. 填写信息，确认预览，下载印刷文件。</small></h1>
+    <h1>CPX Business Cards<small>Fill in your details, check the proof, download a print-ready PDF. Logo size and layout are fixed.</small></h1>
     <div class="spec">3.5 × 2 in · 0.125 in bleed · 2 pages</div>
   </header>
 
   <div class="grid">
     <form class="panel" id="form" autocomplete="off">
       <fieldset>
-        <div class="lg">Person 个人信息</div>
-        <label><span class="lbl">Name<span class="cn">姓名</span></span><input type="text" id="name" placeholder="e.g. Jane Doe"></label>
-        <label><span class="lbl">Title<span class="cn">职位</span></span><input type="text" id="title" placeholder="e.g. Solutions Engineer"></label>
-        <label><span class="lbl">Company<span class="cn">公司</span></span><input type="text" id="company"></label>
+        <div class="lg">Person</div>
+        <label><span class="lbl">Name</span><input type="text" id="name" placeholder="e.g. Jane Doe"></label>
+        <label><span class="lbl">Title</span><input type="text" id="title" placeholder="e.g. Solutions Engineer"></label>
+        <label><span class="lbl">Company</span><input type="text" id="company"></label>
       </fieldset>
       <fieldset>
-        <div class="lg">Contact 联系方式（留空则不显示）</div>
-        <label><span class="lbl">Phone<span class="cn">电话</span></span><input type="tel" id="phone" placeholder="+1 (xxx) xxx-xxxx"></label>
-        <label><span class="lbl">Email<span class="cn">邮箱</span></span><input type="email" id="email" placeholder="firstname.lastname@cpxtech.ai"></label>
-        <label><span class="lbl">Website<span class="cn">网址</span></span><input type="text" id="web"></label>
-        <label><span class="lbl">Address<span class="cn">地址</span></span><input type="text" id="addr"></label>
+        <div class="lg">Contact (leave blank to hide)</div>
+        <label><span class="lbl">Phone</span><input type="tel" id="phone" placeholder="+1 (xxx) xxx-xxxx"></label>
+        <label><span class="lbl">Email</span><input type="email" id="email" placeholder="firstname.lastname@cpxtech.ai"></label>
+        <label><span class="lbl">Website</span><input type="text" id="web"></label>
+        <label><span class="lbl">Address</span><input type="text" id="addr"></label>
       </fieldset>
       <fieldset>
-        <div class="lg">Layout 版式</div>
-        <label><span class="lbl">Tagline<span class="cn">正面标语</span></span><input type="text" id="tagline"></label>
-        <label class="check"><input type="checkbox" id="guides"> Show bleed and safe area 显示出血和安全区</label>
+        <div class="lg">Layout</div>
+        <label><span class="lbl">Tagline</span><input type="text" id="tagline"></label>
+        <label class="check"><input type="checkbox" id="guides"> Show bleed and safe area</label>
       </fieldset>
       <div class="warns" id="warns"></div>
       <div class="actions">
@@ -85,9 +85,9 @@ button:disabled{opacity:.55;cursor:default}
     </form>
 
     <section class="desk" aria-label="Print proof">
-      <div class="side"><h2>Front 正面</h2><svg class="card" id="front" viewBox="9 9 252 144" role="img" aria-label="Front of card"></svg></div>
-      <div class="side"><h2>Back 背面</h2><svg class="card" id="back" viewBox="9 9 252 144" role="img" aria-label="Back of card"></svg></div>
-      <p class="note">Proof shows the trimmed card. The PDF adds 0.125 in bleed on every side, which most printers (Vistaprint, MOO, local shops) expect. Fonts and logo are embedded. 预览为裁切后效果；PDF 每边带 0.125 英寸出血，可直接交印刷商。</p>
+      <div class="side"><h2>Front</h2><svg class="card" id="front" viewBox="9 9 252 144" role="img" aria-label="Front of card"></svg></div>
+      <div class="side"><h2>Back</h2><svg class="card" id="back" viewBox="9 9 252 144" role="img" aria-label="Back of card"></svg></div>
+      <p class="note">Proof shows the trimmed card. The PDF adds 0.125 in bleed on every side, which most printers (Vistaprint, MOO, local shops) expect. Fonts and logo are embedded.</p>
     </section>
   </div>
 </div>
@@ -188,10 +188,10 @@ function render(){
   for(const p of L.ops.back){
     if(!p.key)continue;
     const limit=(p.key==='name'||p.key==='title')&&p.y<L.ops.back.find(q=>q.logo).y+L.ops.back.find(q=>q.logo).h+12?L.logoLeft-8:right;
-    if(p.x+p.w>limit)w.push(`${names[p.key]} is too long and ${limit<right?'runs into the logo':'crosses the safe area'}. Shorten it${limit<right?' or make the back logo smaller':''}. 文字过长。`);
+    if(p.x+p.w>limit)w.push(`${names[p.key]} is too long and ${limit<right?'runs into the logo':'crosses the safe area'}. Shorten it.`);
   }
   const ft=L.ops.front.find(p=>p.t==='text');
-  if(ft&&ft.x<BL+SAFE)w.push('Tagline is too long for the front. 标语过长。');
+  if(ft&&ft.x<BL+SAFE)w.push('Tagline is too long for the front.');
   $('warns').innerHTML=w.map(t=>`<div class="warn">${esc(t)}</div>`).join('');
   try{const o={};FIELDS.forEach(k=>o[k]=state[k]);localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}
 }
@@ -224,12 +224,12 @@ async function boot(){
   render();
   $('form').addEventListener('input',()=>{readForm();render();});
   $('guides').addEventListener('change',render);
-  $('reset').addEventListener('click',()=>{state={...DEFAULTS};writeForm();render();status('Cleared. 已清空。');});
+  $('reset').addEventListener('click',()=>{state={...DEFAULTS};writeForm();render();status('Cleared.');});
   $('form').addEventListener('submit',async e=>{
     e.preventDefault();readForm();render();
-    if(!state.name){status('Enter your name first. 请先填写姓名。');$('name').focus();return;}
+    if(!state.name){status('Enter your name first.');$('name').focus();return;}
     const standalone=!window.claude;
-    if(!downloads&&!standalone){status('Downloading works when this page is opened on claude.ai. 请在 claude.ai 中打开此页面下载。');return;}
+    if(!downloads&&!standalone){status('Downloading works when this page is opened on claude.ai.');return;}
     $('dl').disabled=true;status('Building PDF…');
     try{
       const blob=buildPdf();
